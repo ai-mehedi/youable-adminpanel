@@ -1,0 +1,73 @@
+{
+    "welcome": "Welcome to the application!",
+    "success": "Success",
+    "error": "Error",
+    "invalid": "Invalid",
+    "missing": "Missing",
+    "data": {
+        "invalid": "Data is invalid"
+    },
+    "record": {
+        "already_exists": "Record Already Exists",
+        "not_found": "Record not found",
+        "updated_successfully": "Record updated successfully",
+        "created_successfully": "Record created successfully",
+        "deleted_successfully": "Record deleted successfully"
+    },
+    "records": {
+        "not_found": "Records not found",
+        "updated_successfully": "Records updated successfully",
+        "created_successfully": "Records created successfully",
+        "deleted_successfully": "Records deleted successfully"
+    },
+    "field": {
+        "not_found": "{field} not found",
+        "few_missing": "Few {field} are missing",
+        "invalid": "Invalid {field}",
+        "expired": "{field} has expired",
+        "already_exists": "{field} already exists",
+        "multiple_fields_cannot_exist": "Multiple fields cannot exist, {fields}",
+        "not_unique": "{field} must be unique",
+        "required": "{field} is required",
+        "not_verified": "{field} is not verified",
+        "updated": "{field} updated successfully",
+        "retrieved": "{field} retrieved successfully"
+    },
+    "newsletter": {
+        "subscribed": "You have successfully subscribed to the newsletter"
+    },
+    "email": {
+        "registration": {
+            "subject": "Complete Your Registration by Activating Your Account!"
+        }
+    },
+    "registration": {
+        "success": "Registration successful",
+        "email_verified": "Email verified successfully"
+    },
+    "login": {
+        "success": "Login successful"
+    },
+    "contact": {
+        "created": "Contact created successfully"
+    },
+    "faqs": {
+        "message": "FAQ list retrieved successfully"
+    },
+    "profile": {
+        "updated": "Profile updated successfully",
+        "password_updated": "Password updated successfully",
+        "email_updated": "Email updated successfully",
+        "delete_scheduled": "Profile deletion has scheduled. It will be deleted in 7 days."
+    },
+    "subscription": {
+        "message": "Subscription list retrieved successfully",
+        "created": "Subscription created successfully",
+        "updated": "Subscription updated successfully",
+        "deleted": "Subscription deleted successfully"
+    },
+    "blog": {
+        "message": "Blog list retrieved successfully",
+        "not_found": "Blog not found"
+    }
+}

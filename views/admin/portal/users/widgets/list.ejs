@@ -1,0 +1,28 @@
+<tr>
+  <td><%= serial_number; %></td>
+  <td><%= result.firstName; %></td>
+  <td><%= result.lastName; %></td>
+  <td><%= result.email; %></td>
+  <td>
+    <% if (result.profileStatus) { %>
+    <span class="badge badge-success">Complete</span>
+    <% } else { %>
+    <span class="badge badge-warning">Incomplete</span>
+    <% } %>
+  </td>
+  <td>
+    <% if (result.isActive) { %>
+    <span class="badge badge-success">Active</span>
+    <% } else { %>
+    <span class="badge badge-danger">Inactive</span>
+    <% } %>
+  </td>
+  <td><%= new Date(result.createdAt).toLocaleString(); %></td>
+
+  <td>
+    <div class="d-flex align-items-center" style="gap: 5px;">
+      <a class="btn btn-success " href="/admin/portal/transitions/add?id=<%= result._id.toString(); %>"><i class="fas fa-tachometer-alt"></i></a>
+    </div>
+  </td>
+
+</tr>
