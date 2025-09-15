@@ -38,5 +38,4 @@ lerna-debug.log*
 .env.production
 
 # Uploads
-public/uploads/*
 !public/uploads/.gitkeep
