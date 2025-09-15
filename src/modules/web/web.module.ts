@@ -12,6 +12,7 @@ import { CategoriesModule } from './categories/categories.module';
 import { AddressModule } from './address/address.module';
 import { InforamtionModule } from './inforamtion/inforamtion.module';
 import { IndrustryModule } from './indrustry/indrustry.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { IndrustryModule } from './indrustry/indrustry.module';
     AddressModule,
     InforamtionModule,
     IndrustryModule,
+    CommentModule,
   ],
 })
 export class WebModule {}

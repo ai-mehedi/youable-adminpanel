@@ -14,8 +14,10 @@ export class AdminsService {
   constructor(
     @InjectModel(Admin.name)
     private readonly adminModel: AdminModel,
-  ) {}
+  ) { }
 
+
+  
   async findAdminById(_id: string) {
     return this.adminModel.findById(_id);
   }
@@ -43,6 +45,9 @@ export class AdminsService {
           $set: {
             name: data.name,
             isActive: data.isActive,
+            avatar: data.avatar,
+            facebook: data.facebook,
+            linkedin: data.linkedin,
             ...(password === '' ? {} : { password: password }),
           },
         },
@@ -60,6 +65,9 @@ export class AdminsService {
       await this.adminModel.create({
         name: data.name,
         email: data.email,
+        avatar: data.avatar,
+        facebook: data.facebook,
+        linkedin: data.linkedin,
         password: await hashPassword(data.password || ''),
         isActive: data.isActive,
         roles: [data.role],

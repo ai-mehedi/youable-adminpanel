@@ -9,18 +9,27 @@ import { PaginationOptions } from 'src/shared/plugins/mongoose-plugin/pagination
 import { RenderEjsFile } from 'src/common/helpers/utils/utils';
 import { join } from 'path';
 import { PaginationUI } from 'src/common/helpers/utils/pagination-uri.utils';
+import { Admin, AdminModel } from 'src/models/admin.schema';
 
 @Injectable()
 export class IndustriesService {
   constructor(
     @InjectModel(Industry.name)
     private readonly industryModel: IndustryModel,
+
+    @InjectModel(Admin.name)
+    private readonly adminModel: AdminModel,
+
     @InjectModel(Category.name)
     private readonly categoryModel: CategoryModel,
   ) { }
 
+  async findAllAdmin() {
+    return await this.adminModel.find();
+  }
+
   async findAllCategory() {
-    return this.categoryModel.find(
+    return await this.categoryModel.find(
       { isActive: true, type: "industry" },
     );
   }

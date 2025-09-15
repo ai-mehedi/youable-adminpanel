@@ -14,10 +14,18 @@ export class IndrustryService {
 
 
   async findAll() {
-    return await this.industryModel.find().exec();
+    return await this.industryModel.find()
+    .populate('author')
+    .populate('category')
+    .populate('comments')
+    .exec();
   }
   async findOne(slug: string) {
-    return await this.industryModel.findOne({ slug }).exec();
+    return await this.industryModel.findOne({ slug })
+    .populate('author')
+    .populate('category')
+    .populate('comments')
+    .exec();
   }
 
 
