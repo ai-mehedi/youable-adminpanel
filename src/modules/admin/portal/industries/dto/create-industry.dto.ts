@@ -23,6 +23,11 @@ export class CreateIndustryDto {
     @IsString()
     category: string;
 
+     @ApiProperty()
+    @IsNotEmpty()
+    @IsString()
+    author: string;
+
 
     @ApiProperty()
     @IsNotEmpty()

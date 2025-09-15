@@ -23,7 +23,14 @@ export class Industry {
     slug: string;
 
     @ApiProperty()
-    @ApiProperty({ type: [String], description: 'Array of User IDs' })
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "Admin", required: true })
+    author: Types.ObjectId;
+
+    @ApiProperty({ type: [String], description: 'Array of Comment IDs' })
+    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }], required: false })
+    comments: mongoose.Types.ObjectId[];
+
+    @ApiProperty()
     @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }], required: false })
     category: mongoose.Types.ObjectId;
 

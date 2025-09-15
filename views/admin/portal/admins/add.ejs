@@ -28,9 +28,26 @@
                             <% if(is_update == true){ %>
                                 <input type="hidden" name="action_id" value="<%= action_data._id; %>">
                             <% } %>
+
+ <input type="hidden" name="avatar" id="thumbnail" value="<%= is_update ? action_data?.thumbnail : ''; %>">
+
+              <div class="form-group">
+                <div class="thumbnail-upload-section" data-input="#thumbnail" data-path="/avatar" onclick="uploadThumbnail(this)" style="margin: 0 auto;">
+                  <img src="<%= (is_update && action_data?.thumbnail) ? `${process.env.CDN_URL}/avatar/${action_data.thumbnail}` : '/images/thumbnail.png'; %>" width="120" />
+                </div>
+              </div>
+
                             <div class="form-group">
                                 <label>Name</label>
                                 <input type="text" class="form-control" name="name" placeholder="Name" value="<% if(is_update == true){ %><%= action_data.name; %><% } %>" required>
+                            </div>
+                              <div class="form-group">
+                                <label>facebook</label>
+                                <input type="text" class="form-control" name="facebook" placeholder="facebook" value="<% if(is_update == true){ %><%= action_data.facebook; %><% } %>" required>
+                            </div>
+                              <div class="form-group">
+                                <label>linkedin</label>
+                                <input type="text" class="form-control" name="linkedin" placeholder="linkedin" value="<% if(is_update == true){ %><%= action_data.linkedin; %><% } %>" required>
                             </div>
                             <div class="form-group">
                                 <label>Email</label>

@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   IsMongoId,
   IsNotEmpty,
@@ -11,6 +12,19 @@ export class AddUpdateAdminDto {
   @MaxLength(24)
   @IsString()
   readonly name: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
+  avatar: string;
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
+  facebook: string;
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
+  linkedin: string;
 
   @IsOptional()
   @MaxLength(100)

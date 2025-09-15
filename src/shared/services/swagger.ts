@@ -14,6 +14,7 @@ import { CategoriesModule } from 'src/modules/web/categories/categories.module';
 import { AddressModule } from 'src/modules/web/address/address.module';
 import { InforamtionModule } from 'src/modules/web/inforamtion/inforamtion.module';
 import { IndrustryModule } from 'src/modules/web/indrustry/indrustry.module';
+import { CommentModule } from 'src/modules/web/comment/comment.module';
 
 export const setupSwagger = (app: INestApplication) => {
   // Setting up swagger for admin web module
@@ -39,7 +40,8 @@ export const setupSwagger = (app: INestApplication) => {
       CategoriesModule,
       AddressModule,
       InforamtionModule,
-      IndrustryModule
+      IndrustryModule,
+      CommentModule
 
     ],
   });

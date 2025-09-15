@@ -16,6 +16,7 @@ import { IndustriesModule } from './industries/industries.module';
 import { SliderModule } from './slider/slider.module';
 import { AddressModule } from './address/address.module';
 import { InformationModule } from './information/information.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { InformationModule } from './information/information.module';
     SliderModule,
     AddressModule,
     InformationModule,
+    CommentModule,
   ],
   providers: [CookieService],
 })

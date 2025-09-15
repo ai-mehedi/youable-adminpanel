@@ -25,6 +25,7 @@ export class IndustriesController {
   @Get('add')
   @Render('admin/portal/industries/add')
   async addUpdateIndustry(@Query('id') id: string) {
+    const authors = await this.industriesService.findAllAdmin();
     let title = 'Add Industry';
     let is_update = false;
     let action_data = {};
@@ -46,6 +47,7 @@ export class IndustriesController {
       is_update: is_update,
       action_data: action_data,
       categories: categories,
+      authors: authors,
     };
   }
 

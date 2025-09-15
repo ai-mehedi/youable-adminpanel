@@ -26,22 +26,16 @@ export class Admin {
   @ApiProperty()
   avatar: string;
   @Prop({ type: String, required: true })
-  @ApiProperty()
-  title: string;
+
   @Prop({ type: String, required: true })
-  @ApiProperty()
-  description: string;
-  @Prop({ type: String, required: true, unique: true })
-  @ApiProperty()
-  username: string;
-  @Prop({ type: String, required: true, unique: true })
   @ApiProperty()
   facebook: string;
-  @Prop({ type: String, required: true, unique: true })
+  @Prop({ type: String, required: true })
   @ApiProperty()
-  linkdin: string;
+  linkedin: string;
   @Prop({ type: String, required: true })
   password: string;
+
   @ApiProperty()
   @Prop({
     required: true,
