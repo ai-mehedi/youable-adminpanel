@@ -11,73 +11,22 @@ export class BlogService {
     @InjectModel(Blog.name)
     private readonly blogModel: BlogModel,
     private readonly i18n: I18nService,
-  ) {}
+  ) { }
 
-  async findAllBlogs({
-    limit,
-    page,
-    sortBy,
-    sortOrder,
-    searchText,
-  }: PaginationQuery) {
-    const options: PaginationOptions = { page, limit };
-    const searchBy = ['title'];
-
-    options.sortOrder = {
-      direction: sortOrder,
-      id: sortBy,
-    };
-
-    if (searchText) {
-      options.search = {
-        searchText,
-        searchBy,
-      };
-    }
-
-    options.project = {
-      _id: 1,
-      title: 1,
-      summary: 1,
-      thumbnail: 1,
-      isActive: 1,
-      createdAt: 1,
-      updatedAt: 1,
-    };
-
-    const results = await this.blogModel.paginate(
-      {
-        isActive: true,
-      },
-      options,
-    );
-
+  async findAllBlogs() {
+    const blogs = await this.blogModel.find({ isActive: true });
     return {
-      message: this.i18n.t('response-messages.field.retrieved', {
-        args: {
-          field: 'blogs',
-        },
-      }),
-      result: results,
+      blogs,
     };
   }
 
-  async findBlogById(_id: string) {
+  async findBlogBySlug(slug: string) {
     const blog = await this.blogModel
       .findOne({
-        _id,
+        slug,
         isActive: true,
-      })
-      .select({
-        _id: 1,
-        title: 1,
-        summary: 1,
-        thumbnail: 1,
-        description: 1,
-        isActive: 1,
-        createdAt: 1,
-        updatedAt: 1,
-      });
+      }).populate('category').populate('author').populate('comments');
+
     if (!blog) {
       throw new NotFoundException({
         message: this.i18n.t('response-messages.field.not_found'),

@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
-import mongoose, { HydratedDocument } from 'mongoose';
+import mongoose, { HydratedDocument, Types } from 'mongoose';
 import { PaginateModel } from 'src/shared/plugins/mongoose-plugin/pagination/types';
 import { SoftDeleteModel } from 'src/shared/plugins/mongoose-plugin/soft-delete/types';
 import { paginatePlugin } from 'src/shared/plugins/mongoose-plugin/pagination/plugin';
@@ -36,6 +36,13 @@ export class Blog {
     @ApiProperty()
     @Prop({ type: String, required: true })
     thumbnail: string;
+    @ApiProperty()
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "Admin", required: false })
+    author: Types.ObjectId;
+
+    @ApiProperty({ type: [String], description: 'Array of Comment IDs' })
+    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }], required: false })
+    comments: mongoose.Types.ObjectId[];
 
     @ApiProperty()
     @Prop({ type: String, required: true })
