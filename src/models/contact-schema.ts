@@ -14,23 +14,23 @@ mongoose.Schema.Types.String.set('trim', true);
 })
 export class Contact {
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: false })
   name: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: false })
   email: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: false })
   phone: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: false })
   subject: string;
 
   @ApiProperty()
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: false })
   message: string;
 }
 

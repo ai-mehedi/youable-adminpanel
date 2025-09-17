@@ -6,15 +6,15 @@ import { PaginationQuery } from 'src/shared/dto/pagination.dto';
 @ApiTags('Blogs')
 @Controller('web/blog')
 export class BlogController {
-  constructor(private readonly BlogService: BlogService) {}
+  constructor(private readonly BlogService: BlogService) { }
 
   @Get()
-  findAllBlogs(@Query() queryDto: PaginationQuery) {
-    return this.BlogService.findAllBlogs(queryDto);
+  findAllBlogs() {
+    return this.BlogService.findAllBlogs();
   }
 
-  @Get(':id')
-  findOneBlog(@Param('id') id: string) {
-    return this.BlogService.findBlogById(id);
+  @Get(':slug')
+ async findOneBlog(@Param('slug') slug: string) {
+    return await this.BlogService.findBlogBySlug(slug);
   }
 }
